@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #5a189a;
+            color: white;
+            height: 50px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.3rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #7b2cbf;
+            padding: 10px 0;
+            height: 60px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f9b7f7;
+        }
+
+        .signup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 110px); /* Adjust for header and navbar */
+            background-color: #f4f4f9;
+        }
+
+        .signup-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            border: 2px solid #ddd;
+        }
+
+        .signup-box h2 {
+            text-align: center;
+            color: #5a189a;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .signup-box form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .signup-box label {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .signup-box input {
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .signup-box button {
+            padding: 10px;
+            font-size: 1.2rem;
+            background-color: #7b2cbf;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-box button:hover {
+            background-color: #5a189a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Parking Spot Detection</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="#book">Book</a>
+        <a href="#about">About</a>
+    </nav>
+    <div class="signup-container">
+        <div class="signup-box">
+            <h2>Signup</h2>
+            <form action="/signup" method="POST">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

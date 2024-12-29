@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Parking Spot Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            background-color: #5a189a;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 30px;
+            color: white;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            transition: width 0.3s ease;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding: 0;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: white;
+            display: block;
+            border-bottom: 1px solid #7b2cbf;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #7b2cbf;
+            color: #f9b7f7;
+        }
+
+        .sidebar a.active {
+            background-color: #7b2cbf;
+            color: #f9b7f7;
+        }
+
+        /* Content Area */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+            transition: margin-left 0.3s ease;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #5a189a;
+            color: white;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.3rem;
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-image: url('../static/images/parking.jpg');
+            background-size: cover;
+            background-position: center;
+            margin-top: 30px;
+        }
+
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .banner h2 {
+            font-size: 2.5rem;
+            margin: 0 0 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Signup Button Styling */
+        .signup-button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            color: white;
+            background-color: #5a189a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .signup-button:hover {
+            background-color: #7b2cbf;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 0;
+                padding-top: 20px;
+                overflow: hidden;
+            }
+
+            .sidebar a {
+                font-size: 1.2rem;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+
+            .banner {
+                height: 300px;
+            }
+
+            .banner h2 {
+                font-size: 2rem;
+            }
+
+            .signup-button {
+                font-size: 1.3rem;
+            }
+
+            /* Sidebar Toggle Button */
+            .sidebar-toggle {
+                display: block;
+                background-color: #5a189a;
+                color: white;
+                padding: 15px;
+                font-size: 1.5rem;
+                cursor: pointer;
+                text-align: center;
+                position: fixed;
+                top: 20px;
+                left: 10px;
+                z-index: 1000;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 style="color: #fde720;">ParkVision</h2>
+        <a href="{{ url_for('index') }}" class="active">Live</a>
+        <a href="#book">Book</a>
+        <a href="#about">About</a>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+        <header>
+            <h1>Parking Spot Detection</h1>
+        </header>
+
+        <div class="banner">
+            <div class="banner-content">
+                <h2>Find Your Spot Easily</h2>
+                <a href="{{ url_for('signup_page') }}" class="signup-button">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button for Small Screens -->
+    <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const content = document.querySelector('.content');
+            const isVisible = sidebar.style.width === '250px';
+
+            if (isVisible) {
+                sidebar.style.width = '0';
+                content.style.marginLeft = '0';
+            } else {
+                sidebar.style.width = '250px';
+                content.style.marginLeft = '250px';
+            }
+        }
+    </script>
+</body>
+</html>

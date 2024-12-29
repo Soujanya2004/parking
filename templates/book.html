@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Parking Spot</title>
+</head>
+<body>
+    <h1>Book a Parking Spot</h1>
+    
+    {% if assigned_spot %}
+        <p>Your assigned parking spot is: <strong>{{ assigned_spot }}</strong></p>
+    {% else %}
+        <p>Click the button below to book a parking spot:</p>
+        <form method="post" action="{{ url_for('book') }}">
+            <button type="submit">Book Now</button>
+        </form>
+    {% endif %}
+</body>
+</html>
