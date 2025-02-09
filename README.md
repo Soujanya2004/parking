@@ -1,1 +1,1 @@
-
+The Smart Parking System integrates the MERN (MongoDB, Express.js, React.js, Node.js) stack with OpenCV to provide a modern, software-driven parking management system. By using cameras to capture live video feeds and computer vision techniques to analyze parking spaces, the system identifies occupied and vacant spots in real time. This data is displayed on an interactive web-based interface, enabling users to quickly locate available parking spaces.
